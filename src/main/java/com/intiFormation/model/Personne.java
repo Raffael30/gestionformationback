@@ -29,6 +29,7 @@ public abstract class Personne {
 	private Region region;
 	
 	private String adresse;
+	
 	public int getId() {
 		return id;
 	}

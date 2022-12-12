@@ -6,7 +6,7 @@ import com.intiFormation.model.Utilisateur;
 
 public interface IUtilisateurService {
 	
-	public void merge(Utilisateur uti);
+	public void merge(Utilisateur utilisateur);
 	public Utilisateur getById(int id);
 	public List<Utilisateur> getAll();
 	public void delete(int id);

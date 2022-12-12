@@ -12,49 +12,49 @@ import com.intiFormation.model.Utilisateur;
 public class UtilisateurService implements IUtilisateurService {
 
 	@Autowired
-	IUtilisateurDao utiDao;
+	IUtilisateurDao utilisateurDao;
 	
 	
 	
 	
 	
 	public IUtilisateurDao getUtiDao() {
-		return utiDao;
+		return utilisateurDao;
 	}
 
-	public void setUtiDao(IUtilisateurDao utiDao) {
-		this.utiDao = utiDao;
+	public void setUtiDao(IUtilisateurDao utilisateurDao) {
+		this.utilisateurDao = utilisateurDao;
 	}
 
 	@Override
-	public void merge(Utilisateur uti) {
-		utiDao.save(uti);
+	public void merge(Utilisateur utilisateur) {
+		utilisateurDao.save(utilisateur);
 		
 	}
 
 	@Override
 	public Utilisateur getById(int id) {
-		Utilisateur uti = utiDao.findById(id).get();
-		return uti;
+		Utilisateur utilisateur = utilisateurDao.findById(id).get();
+		return utilisateur;
 	}
 
 	@Override
 	public List<Utilisateur> getAll() {
-		List<Utilisateur> utilisateurs = utiDao.findAll();
+		List<Utilisateur> utilisateurs = utilisateurDao.findAll();
 		return utilisateurs;
 	}
 
 
 	@Override
 	public void delete(int id) {
-		utiDao.deleteById(id);
+		utilisateurDao.deleteById(id);
 		
 	}
 	
 	@Override
 	public Utilisateur findByUsername(String username)
 	{
-		return utiDao.findByUsername(username);
+		return utilisateurDao.findByUsername(username);
 	}
 
 }

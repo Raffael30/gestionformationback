@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Role {
@@ -18,7 +18,7 @@ public class Role {
 	private int id;
 	
 	@OneToMany(mappedBy = "role")
-	@JsonIgnoreProperties({"role"})
+	@JsonIgnore
 	private List<Utilisateur> utilisateurs;
 	
 	private String nom;
