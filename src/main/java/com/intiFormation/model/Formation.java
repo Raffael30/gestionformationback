@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Formation {
 	
@@ -32,9 +34,11 @@ public class Formation {
 	
 	
 	@ManyToMany(mappedBy = "formations")
+	@JsonIgnore
 	private List<Utilisateur> utilisateurs;
 	
 	@OneToMany(mappedBy = "formation")
+	@JsonIgnore
 	private List<Paiement> paiements;
 	
 	

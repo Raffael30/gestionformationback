@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Rendezvous {
 	
@@ -33,15 +35,18 @@ public class Rendezvous {
 	
 	@ManyToOne
 	@JoinColumn(name = "idProspect")
+	@JsonIgnore
 	private Prospect prospect;
 	
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
+	@JsonIgnore
 	private Utilisateur utilisateur;
 	
 	
 	@OneToOne
 	@JoinColumn(name = "idMessage")
+	@JsonIgnore
 	private Message message;
 	
 	

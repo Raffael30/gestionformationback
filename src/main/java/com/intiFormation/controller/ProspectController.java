@@ -12,40 +12,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intiFormation.model.Region;
-import com.intiFormation.service.IRegionService;
+import com.intiFormation.model.Prospect;
+import com.intiFormation.service.IProspectService;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")
-public class RegionController {
+public class ProspectController {
 
 	@Autowired
-	private IRegionService regionService;
+	private IProspectService prospectService;
 	
-	@GetMapping("/regions")
-	public List<Region> selectAll()
+	@GetMapping("/prospects")
+	public List<Prospect> selectAll()
 	{
-		List<Region> regions=regionService.getAll();
-		return regions;
+		List<Prospect> prospects=prospectService.getAll();
+		return prospects;
 	}
 
-	@GetMapping("/regions/{id}")
-	public Region selectById(@PathVariable("id") int id)
+	@GetMapping("/prospects/{id}")
+	public Prospect selectById(@PathVariable("id") int id)
 	{
-		Region region=regionService.getById(id);
-		return region;
+		Prospect prospect=prospectService.getById(id);
+		return prospect;
 	}
 
-	@PutMapping("/regions")
-	public void merge(@RequestBody Region region)
+	@PutMapping("/prospects")
+	public void merge(@RequestBody Prospect prospect)
 	{
-		regionService.merge(region);
+		prospectService.merge(prospect);
 	}
 
-	@DeleteMapping("/regions/{id}")
+	@DeleteMapping("/prospects/{id}")
 	public void delete(@PathVariable("id") int id)
 	{
-		regionService.delete(id);
+		Prospect prospect=prospectService.getById(id);
+		prospectService.delete(id);
 	}
 }
