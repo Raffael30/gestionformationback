@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Statut {
 	
@@ -17,17 +19,18 @@ public class Statut {
 	private int id;
 	
 	private String nom;
-	private String type;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "statut")
 	private List<Paiement> paiements;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "statut")
 	private List<Prospect> prospects;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "statut")
 	private List<Rendezvous> rendezvous;
-	
 	
 	
 	public List<Paiement> getPaiements() {
@@ -60,12 +63,7 @@ public class Statut {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+
 	public Statut() {
 		super();
 		// TODO Auto-generated constructor stub
