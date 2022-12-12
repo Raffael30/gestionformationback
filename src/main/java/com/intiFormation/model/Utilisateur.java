@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Utilisateur extends Personne {
 	
@@ -31,16 +33,20 @@ public class Utilisateur extends Personne {
 	@JoinTable(name = "utilisateur_formation",
     joinColumns = @JoinColumn(name = "idUtilisateur"),
     inverseJoinColumns = @JoinColumn(name = "idFormation"))
+	@JsonIgnore
 	private List<Formation> formations;
 	
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private List<Paiement> paiement;
 	
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private List<Rendezvous> rendezvous;
 	
 	
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private List<Message> message;
 	
 	

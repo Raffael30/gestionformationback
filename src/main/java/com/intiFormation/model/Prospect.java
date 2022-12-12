@@ -7,6 +7,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Prospect extends Personne {
 	
@@ -16,6 +18,7 @@ public class Prospect extends Personne {
 	private Statut statut;
 
 	@OneToMany(mappedBy = "prospect")
+	@JsonIgnore
 	private List<Rendezvous> rendezvous;
 	
 	
