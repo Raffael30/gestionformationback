@@ -12,41 +12,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intiFormation.model.Region;
-import com.intiFormation.service.IRegionService;
+import com.intiFormation.model.Rendezvous;
+import com.intiFormation.service.IRendezvousService;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")
-public class RegionController {
+public class RendezvousController {
 
-	@Autowired
-	private IRegionService regionService;
 	
-	@GetMapping("/regions")
-	public List<Region> selectAll()
+	@Autowired
+	private IRendezvousService rendezvousService;
+	
+	@GetMapping("/rendezvouss")
+	public List<Rendezvous> selectAll()
 	{
-		List<Region> regions=regionService.getAll();
-		return regions;
+		List<Rendezvous> rendezvouss=rendezvousService.getAll();
+		return rendezvouss;
 	}
 
-	@GetMapping("/regions/{id}")
-	public Region selectById(@PathVariable("id") int id)
+	@GetMapping("/rendezvouss/{id}")
+	public Rendezvous selectById(@PathVariable("id") int id)
 	{
-		Region region=regionService.getById(id);
-		return region;
+		Rendezvous rendezvous=rendezvousService.getById(id);
+		return rendezvous;
 	}
 
-	@PutMapping("/regions")
-	public void merge(@RequestBody Region region)
+	@PutMapping("/rendezvouss")
+	public void merge(@RequestBody Rendezvous rendezvous)
 	{
-		regionService.merge(region);
+		rendezvousService.merge(rendezvous);
 	}
 
-	@DeleteMapping("/regions/{id}")
+	@DeleteMapping("/rendezvouss/{id}")
 	public void delete(@PathVariable("id") int id)
 	{
 		
-		regionService.delete(id);
+		rendezvousService.delete(id);
 	}
 }
