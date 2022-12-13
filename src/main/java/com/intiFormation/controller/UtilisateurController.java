@@ -3,6 +3,7 @@ package com.intiFormation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,8 +26,8 @@ public class UtilisateurController {
 	@Autowired
 	private IUtilisateurService utilisateurService;
 	
-	/*@Autowired
-	private BCryptPasswordEncoder bcrypt;*/
+	@Autowired
+	private BCryptPasswordEncoder bcrypt;
 	
 
 	@GetMapping("/utilisateurs")
@@ -57,7 +58,7 @@ public class UtilisateurController {
     @PutMapping("/utilisateurs")
     public void merge(@RequestBody Utilisateur utilisateur)
     {
-    	//utilisateur.setPassword(bcrypt.encode(utilisateur.getPassword()));
+    	utilisateur.setPassword(bcrypt.encode(utilisateur.getPassword()));
     	utilisateurService.merge(utilisateur);
     }
     
