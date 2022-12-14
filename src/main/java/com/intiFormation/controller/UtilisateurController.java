@@ -53,6 +53,15 @@ public class UtilisateurController {
         return utilisateur;
         
     }
+    
+    @GetMapping("/utilisateurs/roles/{nomRole}")
+    public List<Utilisateur> selectByNomRole(@PathVariable("nomRole") String nomRole)
+    {
+    	List<Utilisateur> utilisateurs = utilisateurService.findByRole_nom(nomRole);
+        return utilisateurs;
+        
+    }
+
 
 
     @PutMapping("/utilisateurs")

@@ -56,5 +56,11 @@ public class UtilisateurService implements IUtilisateurService {
 	{
 		return utilisateurDao.findByUsername(username);
 	}
+	
+	@Override
+	public List<Utilisateur> findByRole_nom(String username)
+	{
+		return utilisateurDao.findByRole_nom(username);
+	}
 
 }

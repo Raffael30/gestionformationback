@@ -11,5 +11,6 @@ public interface IUtilisateurService {
 	public List<Utilisateur> getAll();
 	public void delete(int id);
 	public Utilisateur findByUsername(String username);
+	public List<Utilisateur> findByRole_nom(String username);
 
 }
