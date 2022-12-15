@@ -28,6 +28,10 @@ public class Utilisateur extends Personne {
 	@JoinColumn(name = "idRole")
 	private Role role;
 	
+	@OneToMany(mappedBy = "formateur")
+	@JsonIgnore
+	private List<Formation> formation;
+	
 	
 	@ManyToMany
 	@JoinTable(name = "utilisateur_formation",
@@ -124,6 +128,19 @@ public class Utilisateur extends Personne {
 	public void setPaiement(List<Paiement> paiement) {
 		this.paiement = paiement;
 	}
+
+	
+
+	public List<Formation> getFormation() {
+		return formation;
+	}
+
+
+	public void setFormation(List<Formation> formation) {
+		this.formation = formation;
+	}
+
+
 
 
 	public Utilisateur() {

@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,6 +38,12 @@ public class Formation {
 	@ManyToMany(mappedBy = "formations")
 	@JsonIgnore
 	private List<Utilisateur> utilisateurs;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "idFormateur")
+	private Utilisateur formateur;
+	
 	
 	@OneToMany(mappedBy = "formation")
 	@JsonIgnore
@@ -93,6 +101,15 @@ public class Formation {
 	public void setPaiements(List<Paiement> paiements) {
 		this.paiements = paiements;
 	}
+	
+	
+	public Utilisateur getFormateur() {
+		return formateur;
+	}
+	public void setFormateur(Utilisateur formateur) {
+		this.formateur = formateur;
+	}
+	
 	
 	public Formation() {
 		super();
