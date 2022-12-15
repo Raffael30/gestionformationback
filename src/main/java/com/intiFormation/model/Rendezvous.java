@@ -22,7 +22,7 @@ public class Rendezvous {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date date;
 	private String commentaire;
 	
