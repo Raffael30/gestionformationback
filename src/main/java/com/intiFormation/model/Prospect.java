@@ -1,5 +1,6 @@
 package com.intiFormation.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,9 +22,29 @@ public class Prospect extends Personne {
 	@JsonIgnore
 	private List<Rendezvous> rendezvous;
 	
+	private Date date;
+	
+	private String commentaire;
 	
 	
 	
+	
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public List<Rendezvous> getRendezvous() {
 		return rendezvous;
 	}
