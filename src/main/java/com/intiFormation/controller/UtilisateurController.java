@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,9 +64,23 @@ public class UtilisateurController {
     }
 
 
+    @PutMapping("/utilisateurs/password")
+    public void mergePassword(@RequestBody Utilisateur utilisateur)
+    {
+    	utilisateur.setPassword(bcrypt.encode(utilisateur.getPassword()));
+    	utilisateurService.merge(utilisateur);
+    }
 
-    @PutMapping("/utilisateurs")
-    public void merge(@RequestBody Utilisateur utilisateur)
+    
+    @PutMapping("/utilisateurs/informations")
+    public void mergeInformations(@RequestBody Utilisateur utilisateur)
+    {
+    	utilisateurService.merge(utilisateur);
+    }
+    
+    
+    @PostMapping("/utilisateurs")
+    public void add(@RequestBody Utilisateur utilisateur)
     {
     	utilisateur.setPassword(bcrypt.encode(utilisateur.getPassword()));
     	utilisateurService.merge(utilisateur);
