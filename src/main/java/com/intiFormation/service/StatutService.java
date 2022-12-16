@@ -41,4 +41,11 @@ public class StatutService implements IStatutService{
 	    statutDao.deleteById(id);
 	}
 	
+	@Override
+	public List<Statut> getByTypeOrType(String type, String general){
+		List<Statut> statuts = statutDao.findByTypeOrType(type, general);
+		return statuts;
+		
+	}
+	
 }

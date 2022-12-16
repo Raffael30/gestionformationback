@@ -7,6 +7,8 @@ import com.intiFormation.model.Statut;
 public interface IStatutService {
 
 	public Statut getById(int id);
+	
+	public List<Statut> getByTypeOrType(String type, String general);
 
 	public List<Statut> getAll();
 

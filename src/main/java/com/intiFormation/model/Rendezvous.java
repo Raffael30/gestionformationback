@@ -26,7 +26,7 @@ public class Rendezvous {
 	private Date date;
 	private String commentaire;
 	
-	private LocalDateTime horaire;
+	private Date horaire;
 	
 	@ManyToOne
 	@JoinColumn(name = "idStatut")
@@ -100,11 +100,11 @@ public class Rendezvous {
 		this.commentaire = commentaire;
 	}
 
-	public LocalDateTime getHoraire() {
+	public Date getHoraire() {
 		return horaire;
 	}
 
-	public void setHoraire(LocalDateTime horaire) {
+	public void setHoraire(Date horaire) {
 		this.horaire = horaire;
 	}
 

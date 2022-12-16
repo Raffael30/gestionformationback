@@ -19,6 +19,7 @@ public class Statut {
 	private int id;
 	
 	private String nom;
+	private String type;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "statut")
@@ -63,7 +64,13 @@ public class Statut {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public Statut() {
 		super();
 		// TODO Auto-generated constructor stub
