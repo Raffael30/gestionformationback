@@ -29,6 +29,13 @@ public class StatutController {
 	    List<Statut> statuts = statutService.getAll();
 	    return statuts;
 	}
+	
+	@GetMapping("/statuts/type/{type}/general/{general}")
+	public List<Statut> selectAllByType(@PathVariable("type") String type, @PathVariable("general") String general)
+	{
+	    List<Statut> statuts = statutService.getByTypeOrType(type, general);
+	    return statuts;
+	}
 
 
 	@GetMapping("/statuts/{id}")
