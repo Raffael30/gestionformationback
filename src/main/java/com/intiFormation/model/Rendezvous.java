@@ -1,6 +1,5 @@
 package com.intiFormation.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Rendezvous {
@@ -22,9 +21,8 @@ public class Rendezvous {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	//@Temporal(TemporalType.DATE)
-	private Date date;
 	private String commentaire;
+	
 	
 	private Date horaire;
 	
@@ -35,18 +33,18 @@ public class Rendezvous {
 	
 	@ManyToOne
 	@JoinColumn(name = "idProspect")
-	@JsonIgnore
+	@JsonIgnoreProperties({"rendezvous"})
 	private Prospect prospect;
 	
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
-	@JsonIgnore
+	@JsonIgnoreProperties({"rendezvous"})
 	private Utilisateur utilisateur;
 	
 	
 	@OneToOne
 	@JoinColumn(name = "idMessage")
-	@JsonIgnore
+	@JsonIgnoreProperties({"rendezvous"})
 	private Message message;
 	
 	
@@ -84,13 +82,6 @@ public class Rendezvous {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
 
 	public String getCommentaire() {
 		return commentaire;
