@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 public class Message {
@@ -20,13 +23,11 @@ public class Message {
 	
 	private String objet;
 	
-	@ManyToOne
-	@JoinColumn(name = "idUtilisateur")
-	private Utilisateur utilisateur;
 	
 
 	@OneToOne
 	@JoinColumn(name = "idRendezvous")
+	@JsonIgnoreProperties({"messages"})
 	private Rendezvous rendezvous;
 	
 	
@@ -48,12 +49,6 @@ public class Message {
 	}
 	public void setObjet(String objet) {
 		this.objet = objet;
-	}
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
 	}
 	
 	public Message() {
