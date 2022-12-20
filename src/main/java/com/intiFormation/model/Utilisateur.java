@@ -34,11 +34,8 @@ public class Utilisateur extends Personne {
 	private List<Formation> formation;
 	
 	
-	@ManyToMany
-	@JoinTable(name = "utilisateur_formation",
-    joinColumns = @JoinColumn(name = "idUtilisateur"),
-    inverseJoinColumns = @JoinColumn(name = "idFormation"))
-	@JsonIgnoreProperties({"utilisateurs"})
+	@ManyToMany(mappedBy = "utilisateurs")
+	@JsonIgnore
 	private List<Formation> formations;
 	
 	@OneToMany(mappedBy = "utilisateur")

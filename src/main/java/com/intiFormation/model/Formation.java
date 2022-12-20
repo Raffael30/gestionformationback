@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -36,8 +37,10 @@ public class Formation {
 	private Date dateFin;
 	
 	
-	@ManyToMany(mappedBy = "formations")
-	@JsonIgnoreProperties({"formations"})
+	@ManyToMany
+	@JoinTable(name = "formation_utilisateur",
+    joinColumns = @JoinColumn(name = "idFormation"),
+    inverseJoinColumns = @JoinColumn(name = "idUtilisateur"))
 	private List<Utilisateur> utilisateurs;
 	
 	

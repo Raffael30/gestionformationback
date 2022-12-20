@@ -42,8 +42,6 @@ public class PaiementController {
         return paiement;
         
     }
-    
-
 
     @PutMapping("/paiements")
     public void merge(@RequestBody Paiement paiement)
@@ -57,5 +55,25 @@ public class PaiementController {
     	paiementService.delete(id);
     }
     
+    @GetMapping("/paiementsParIdFormation/{id}")
+    public List<Paiement> selectByIdFormation(@PathVariable("id") int id)
+    {
+    	List<Paiement> paiements = paiementService.getByFormation_id(id);
+        return paiements; 
+    }
+    
+    @GetMapping("/paiementsParIdUtilisateur/{id}")
+    public List<Paiement> selectByIdUtilisateur(@PathVariable("id") int id)
+    {
+    	List<Paiement> paiements = paiementService.getByUtilisateur_id(id);
+        return paiements; 
+    }
 
+    @GetMapping("/paiementsParIdFormationAndIdUtilisateur/idFormation/{idFormation}/idUtilisateur/{idUtilisateur}")
+    public List<Paiement> selectByIdFormationAndIdUtilisateur(@PathVariable("idFormation") int idFormation, @PathVariable("idUtilisateur") int idUtilisateur)
+    {
+   	   List<Paiement> paiements = paiementService.getByFormation_idAndUtilisateur_id(idFormation,idUtilisateur);
+       return paiements; 
+   
+    }
 }

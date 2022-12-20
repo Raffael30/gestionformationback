@@ -1,5 +1,6 @@
 package com.intiFormation.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,16 @@ public class FormationService implements IFormationService {
 		
 	}
 	
+	public List<Formation> getByUtilisateur_id(int id)
+	{
+		List<Formation> formations=formationDao.findByUtilisateur_id(id);
+		return formations;
+	}
 	
+	public List<Formation> getByNomContaining(String nom)
+	{
+		List<Formation> formations=formationDao.findByNomContaining(nom);
+		return formations;
+	}
 	
 }
