@@ -12,41 +12,32 @@ import com.intiFormation.model.Message;
 public class MessageService implements IMessageService {
 
 	@Autowired
-	IMessageDao rolDao;
+	IMessageDao messageDao;
 	
 	
 	
-	
-	
-	public IMessageDao getRolDao() {
-		return rolDao;
-	}
-
-	public void setRolDao(IMessageDao rolDao) {
-		this.rolDao = rolDao;
-	}
 
 	@Override
-	public void merge(Message rol) {
-		rolDao.save(rol);
+	public void merge(Message message) {
+		messageDao.save(message);
 		
 	}
 
 	@Override
 	public Message getById(int id) {
-		Message rol = rolDao.findById(id).get();
-		return rol;
+		Message message = messageDao.findById(id).get();
+		return message;
 	}
 
 	@Override
 	public List<Message> getAll() {
-		List<Message> messages = rolDao.findAll();
+		List<Message> messages = messageDao.findAll();
 		return messages;
 	}
 
 	@Override
 	public void delete(int id) {
-		rolDao.deleteById(id);
+		messageDao.deleteById(id);
 		
 	}
 	
