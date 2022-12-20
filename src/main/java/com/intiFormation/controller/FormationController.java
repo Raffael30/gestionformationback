@@ -43,10 +43,10 @@ public class FormationController {
     }
     
 
-
     @PutMapping("/formations")
     public void merge(@RequestBody Formation formation)
     {
+    	System.out.println(formation.getUtilisateurs().size());
     	formationService.merge(formation);
     }
     
@@ -57,4 +57,19 @@ public class FormationController {
     }
     
 
+    @GetMapping("/formationsParUtilisateur/{id}")
+    public List<Formation> selectByIdUtilisateur(@PathVariable("id") int id)
+    {
+    	List<Formation> formations = formationService.getByUtilisateur_id(id);
+        return formations;
+        
+    }
+    
+    @GetMapping("/formationsParNomFormation/{nom}")
+    public List<Formation> selectByNomFormation(@PathVariable("nom") String nom)
+    {
+    	List<Formation> formations = formationService.getByNomContaining(nom);
+        return formations;
+        
+    }
 }
