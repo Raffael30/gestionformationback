@@ -43,7 +43,7 @@ public class FormationService implements IFormationService {
 	
 	public List<Formation> getByUtilisateur_id(int id)
 	{
-		List<Formation> formations=formationDao.findByUtilisateur_id(id);
+		List<Formation> formations=formationDao.findByUtilisateurs_id(id);
 		return formations;
 	}
 	
