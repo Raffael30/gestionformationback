@@ -9,7 +9,7 @@ import com.intiFormation.model.Formation;
 
 public interface IFormationDao extends JpaRepository<Formation, Integer> {
 
-	public List<Formation> findByUtilisateur_id(int id);
+	public List<Formation> findByUtilisateurs_id(int id);
 	public List<Formation> findByNomContaining(String nom);
 
 }
