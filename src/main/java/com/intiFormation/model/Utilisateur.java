@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Utilisateur extends Personne {
@@ -33,46 +34,23 @@ public class Utilisateur extends Personne {
 	private List<Formation> formation;
 	
 	
-	@ManyToMany
-	@JoinTable(name = "utilisateur_formation",
-    joinColumns = @JoinColumn(name = "idUtilisateur"),
-    inverseJoinColumns = @JoinColumn(name = "idFormation"))
+	@ManyToMany(mappedBy = "utilisateurs")
 	@JsonIgnore
 	private List<Formation> formations;
 	
 	@OneToMany(mappedBy = "utilisateur")
-	@JsonIgnore
+	@JsonIgnoreProperties({"utilisateur"})
 	private List<Paiement> paiement;
 	
 	@OneToMany(mappedBy = "utilisateur")
-	@JsonIgnore
+	@JsonIgnoreProperties({"utilisateur"})
 	private List<Rendezvous> rendezvous;
 	
-	
-	@OneToMany(mappedBy = "utilisateur")
-	@JsonIgnore
-	private List<Message> message;
-	
-	
+
 
 	public List<Rendezvous> getRendezvous() {
 		return rendezvous;
 	}
-
-	
-	
-	
-	public List<Message> getMessage() {
-		return message;
-	}
-
-
-
-
-	public void setMessage(List<Message> message) {
-		this.message = message;
-	}
-
 
 
 

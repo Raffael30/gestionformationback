@@ -3,7 +3,7 @@ package com.intiFormation.service;
 import java.util.List;
 
 import com.intiFormation.model.Formation;
-import com.intiFormation.model.Utilisateur;
+
 
 public interface IFormationService {
 	
@@ -11,5 +11,7 @@ public interface IFormationService {
 	public Formation getById(int id);
 	public List<Formation> getAll();
 	public void delete(int id);
+	public List<Formation> getByUtilisateur_id(int id);
+	public List<Formation> getByNomContaining(String nom);
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.intiFormation.dao.IPaiementDao;
+import com.intiFormation.model.Formation;
 import com.intiFormation.model.Paiement;
 
 
@@ -40,6 +41,24 @@ public class PaiementService implements IPaiementService {
 	public void delete(int id) {
 		paiementDao.deleteById(id);
 		
+	}
+	
+	public List<Paiement> getByFormation_id(int id)
+	{
+		List<Paiement> paiements=paiementDao.findByFormation_id(id);
+		return paiements;
+	}
+	
+	public List<Paiement> getByUtilisateur_id(int id)
+	{
+		List<Paiement> paiements=paiementDao.findByUtilisateur_id(id);
+		return paiements;
+	}
+	
+	public List<Paiement> getByFormation_idAndUtilisateur_id(int idFormation, int idUtilisateur)
+	{
+		List<Paiement> paiements=paiementDao.findByFormation_idAndUtilisateur_id(idFormation,idUtilisateur);
+		return paiements;
 	}
 
 }

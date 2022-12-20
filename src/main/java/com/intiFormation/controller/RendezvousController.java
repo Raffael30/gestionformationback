@@ -41,6 +41,7 @@ public class RendezvousController {
 	@PutMapping("/rendezvouss")
 	public void merge(@RequestBody Rendezvous rendezvous)
 	{
+		System.out.println(rendezvous.getHoraire());
 		rendezvousService.merge(rendezvous);
 	}
 

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -15,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Formation {
@@ -35,8 +37,10 @@ public class Formation {
 	private Date dateFin;
 	
 	
-	@ManyToMany(mappedBy = "formations")
-	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name = "formation_utilisateur",
+    joinColumns = @JoinColumn(name = "idFormation"),
+    inverseJoinColumns = @JoinColumn(name = "idUtilisateur"))
 	private List<Utilisateur> utilisateurs;
 	
 	

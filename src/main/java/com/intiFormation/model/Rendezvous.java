@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,7 +25,7 @@ public class Rendezvous {
 	
 	private String commentaire;
 	
-	
+	@JsonFormat(timezone = "Europe/Paris")
 	private Date horaire;
 	
 	@ManyToOne
@@ -33,7 +35,7 @@ public class Rendezvous {
 	
 	@ManyToOne
 	@JoinColumn(name = "idProspect")
-	@JsonIgnoreProperties({"rendezvous"})
+	@JsonIgnore
 	private Prospect prospect;
 	
 	@ManyToOne
