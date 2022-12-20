@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Formation {
@@ -36,7 +37,7 @@ public class Formation {
 	
 	
 	@ManyToMany(mappedBy = "formations")
-	@JsonIgnore
+	@JsonIgnoreProperties({"formations"})
 	private List<Utilisateur> utilisateurs;
 	
 	
