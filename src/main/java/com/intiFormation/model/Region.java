@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Region {
@@ -21,7 +20,6 @@ public class Region {
 	private String nom;
 	
 	@OneToMany(mappedBy = "region")
-	@JsonIgnoreProperties({"region"})
 	@JsonIgnore
 	private List<Personne> personnes;
 	
