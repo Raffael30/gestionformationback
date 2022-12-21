@@ -9,12 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Rendezvous {
@@ -44,7 +41,7 @@ public class Rendezvous {
 	
 	@OneToOne
 	@JoinColumn(name = "idMessage")
-	@JsonIgnoreProperties({"rendezvous"})
+	@JsonIgnore
 	private Message message;
 	
 	

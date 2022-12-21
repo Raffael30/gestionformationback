@@ -27,7 +27,6 @@ public class Message {
 
 	@OneToOne
 	@JoinColumn(name = "idRendezvous")
-	@JsonIgnoreProperties({"messages"})
 	private Rendezvous rendezvous;
 	
 	
