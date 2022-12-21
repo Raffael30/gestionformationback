@@ -1,5 +1,6 @@
 package com.intiFormation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,18 @@ public class UtilisateurService implements IUtilisateurService {
 	public List<Utilisateur> findByRole_nom(String username)
 	{
 		return utilisateurDao.findByRole_nom(username);
+	}
+	
+	@Override
+	public List<Utilisateur> selectUtilisateurFormation(Integer[] tab)
+	{
+		List<Utilisateur> utilisateurs= new ArrayList<Utilisateur>();
+		for(int i=0; i<tab.length;i++)
+		{
+			Utilisateur utilisateur=utilisateurDao.findById(tab[i]).get();
+			utilisateurs.add(utilisateur);
+		}
+		return utilisateurs;
 	}
 
 }

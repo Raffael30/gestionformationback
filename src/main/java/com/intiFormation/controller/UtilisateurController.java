@@ -78,6 +78,16 @@ public class UtilisateurController {
     	utilisateurService.merge(utilisateur);
     }
     
+    @PostMapping("/utilisateurs/fromArray")
+    public List<Utilisateur> userFromArray( @RequestBody Integer[] tab)
+    {
+    	for(int val :tab)
+    	{
+    		System.out.println(val);
+    	}
+    	return this.utilisateurService.selectUtilisateurFormation(tab);
+    }
+    
     
     @PostMapping("/utilisateurs")
     public void add(@RequestBody Utilisateur utilisateur)
@@ -92,6 +102,5 @@ public class UtilisateurController {
     	utilisateurService.delete(id);
     }
     
-
 
 }
