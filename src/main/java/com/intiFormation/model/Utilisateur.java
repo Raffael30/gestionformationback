@@ -43,7 +43,7 @@ public class Utilisateur extends Personne {
 	private List<Paiement> paiement;
 	
 	@OneToMany(mappedBy = "utilisateur")
-	@JsonIgnoreProperties({"utilisateur"})
+	@JsonIgnore
 	private List<Rendezvous> rendezvous;
 	
 
