@@ -11,5 +11,5 @@ public interface IUtilisateurDao extends JpaRepository<Utilisateur, Integer>{
 	
 	public Utilisateur findByUsername(String username);
 	public List<Utilisateur> findByRole_nom(String nom);
-
+	//public List<Utilisateur> selectUtilisateurFormation(Integer[] tab);
 }

@@ -12,5 +12,6 @@ public interface IUtilisateurService {
 	public void delete(int id);
 	public Utilisateur findByUsername(String username);
 	public List<Utilisateur> findByRole_nom(String username);
+	public List<Utilisateur> selectUtilisateurFormation(Integer[] tab);
 
 }
