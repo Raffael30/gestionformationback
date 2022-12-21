@@ -35,12 +35,10 @@ public class Rendezvous {
 	
 	@ManyToOne
 	@JoinColumn(name = "idProspect")
-	@JsonIgnore
 	private Prospect prospect;
 	
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
-	@JsonIgnoreProperties({"rendezvous"})
 	private Utilisateur utilisateur;
 	
 	
