@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.intiFormation.model.Formation;
 import com.intiFormation.service.IFormationService;
 
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/api")
@@ -23,6 +24,8 @@ public class FormationController {
 	
 	@Autowired
 	private IFormationService formationService;
+	
+	
 	
 	
 
@@ -47,6 +50,7 @@ public class FormationController {
     public void merge(@RequestBody Formation formation)
     {
     	System.out.println(formation.getUtilisateurs().size());
+    	
     	formationService.merge(formation);
     }
     
@@ -72,4 +76,6 @@ public class FormationController {
         return formations;
         
     }
+    
+    
 }
